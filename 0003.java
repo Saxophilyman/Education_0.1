@@ -1,6 +1,7 @@
 
 import java.util.*;
 
+public class Level1 {
 public static int ConquestCampaign(int lines, int columns, int countAreaToDecant, int[] battalion) {
         int day = 0;
         boolean conquestCompleted;
