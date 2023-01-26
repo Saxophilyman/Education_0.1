@@ -1,27 +1,7 @@
 import java.util.*;
-
-public  classLevel1 {
-        public static int[] WordSearch(int len, String s, String subs) {
+public class Level1 {
+    public static int[] WordSearch(int len, String s, String subs) {
         String[] text = s.split(" ", 0);
-        ArrayList<String> transformList = (returnList(len, text));
-        int[] arr = new int[transformList.size()];
-        for (int indexSearch = 0; indexSearch < transformList.size(); indexSearch++) {
-            String[] searchText = transformList.get(indexSearch).split(" ");
-            for (int inIndexSearchText = 0; inIndexSearchText < searchText.length; inIndexSearchText++) {
-                if (searchText[inIndexSearchText].equals(subs)) {
-                    arr[indexSearch] = 1;
-                    break;
-                }
-            }
-            if (arr[indexSearch] != 1) {
-                arr[indexSearch] = 0;
-            }
-        }
-        return arr;
-    }
-
-       
-        public static ArrayList<String> returnList(int len, String[] text) {
         ArrayList<String> list = new ArrayList<>();
         list.add(0, "");
         int indexForLIst = 0;
@@ -60,6 +40,19 @@ public  classLevel1 {
                 } else index--;
             }
         }
-        return list;
-    }
+        int[] arr = new int[list.size()];
+        for (int indexSearch = 0; indexSearch < list.size(); indexSearch++) {
+            String[] searchText = list.get(indexSearch).split(" ");
+            for (int inIndexSearchText = 0; inIndexSearchText < searchText.length; inIndexSearchText++) {
+                if (searchText[inIndexSearchText].equals(subs)) {
+                    arr[indexSearch] = 1;
+                    break;
+                }
+            }
+            if (arr[indexSearch] != 1) {
+                arr[indexSearch] = 0;
+            }
+        }
+        return arr;
+    }  
 }
