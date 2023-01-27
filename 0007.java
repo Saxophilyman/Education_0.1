@@ -1,6 +1,6 @@
 import java.util.*;
 public class Level1 {
-    public static int[] WordSearch(int len, String s, String subs) {
+        public static int[] WordSearch(int len, String s, String subs) {
         String[] text = s.split(" ", 0);
         ArrayList<String> list = new ArrayList<>();
         list.add(0, "");
@@ -39,6 +39,9 @@ public class Level1 {
                     countLen -= list.get(indexForLIst).length();
                 } else index--;
             }
+            if (list.get(index).isEmpty()){
+                list.remove(index);
+            }
         }
         int[] arr = new int[list.size()];
         for (int indexSearch = 0; indexSearch < list.size(); indexSearch++) {
@@ -54,5 +57,5 @@ public class Level1 {
             }
         }
         return arr;
-    }  
+    }
 }
