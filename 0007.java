@@ -1,5 +1,5 @@
 import java.util.*;
-public class Level1 {
+public class Level1 {    
         public static int[] WordSearch(int len, String s, String subs) {
         String[] text = s.split(" ", 0);
         ArrayList<String> list = new ArrayList<>();
@@ -18,10 +18,14 @@ public class Level1 {
                 newString = false;
             } else {
                 countLen = len;
-                indexForLIst++;
-                list.add(indexForLIst, "");
                 newString = true;
                 if (text[index].length() > len) {
+                    indexForLIst++;
+                    list.add(indexForLIst, "");
+                    if (indexForLIst - 1 == 0 && list.get(0).isEmpty()) {
+                        list.remove(indexForLIst);
+                        indexForLIst--;
+                    }
                     int indexOfLargeString = 0;
                     int endIndexOfLargeString = text[index].length();
                     while (indexOfLargeString <= text[index].length()) {
@@ -31,16 +35,20 @@ public class Level1 {
                             list.add(indexForLIst, "");
                         } else {
                             endIndexOfLargeString = indexOfLargeString + endIndexOfLargeString;
-                            list.set(indexForLIst, text[index].substring(indexOfLargeString, endIndexOfLargeString) + " ");
+                            list.set(indexForLIst, text[index].substring(indexOfLargeString, endIndexOfLargeString) + "");
                         }
                         endIndexOfLargeString -= len;
                         indexOfLargeString += len;
                     }
                     countLen -= list.get(indexForLIst).length();
-                } else index--;
-            }
-            if (list.get(index).isEmpty()){
-                list.remove(index);
+                } else {
+                    index--;
+                    indexForLIst++;
+                    list.add(indexForLIst, "");
+                }
+                if (index + 1 == text.length && list.get(indexForLIst).isEmpty()) {
+                    list.remove(indexForLIst);
+                }
             }
         }
         int[] arr = new int[list.size()];
@@ -51,9 +59,6 @@ public class Level1 {
                     arr[indexSearch] = 1;
                     break;
                 }
-            }
-            if (arr[indexSearch] != 1) {
-                arr[indexSearch] = 0;
             }
         }
         return arr;
