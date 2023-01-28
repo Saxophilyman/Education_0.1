@@ -1,7 +1,7 @@
 import java.util.*;
 
 public  classLevel1 {    
-  public static int SumOfThe(int N, int[] data) {
+    public static int SumOfThe(int N, int[] data) {
         int sum = 0;
         int allSumOfArray = Arrays.stream(data).sum();
         for (int index : data) {
