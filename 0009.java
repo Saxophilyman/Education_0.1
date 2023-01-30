@@ -49,7 +49,7 @@ public class Level1 {
                 if (matrix[indexColumn][indexLine] != null)
                     redString.append(matrix[indexColumn][indexLine]);
             }
-            if (encode) {
+            if (encode && indexLine != matrix[0].length - 1) {
                 redString.append(" ");
             }
         }
