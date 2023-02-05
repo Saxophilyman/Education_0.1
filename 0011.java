@@ -28,6 +28,9 @@ public class Level1 {
                 downStringOfSubtraction = new StringBuilder(s1.substring(indexOfString));
                 break;
             }
+              else if (s1.length() == s2.length() && s1.lastIndexOf(s2,s2.length()-1) !=-1 ){
+                return String.valueOf(resultSubtraction.append("0"));
+            }
         }
 
         assert upStringOfSubtraction != null;
