@@ -6,6 +6,9 @@ public class Level1 {
         int pointWay = 0;
         int varForTrafficLightsOperation;
         for (int countTrafficLights = 0; countTrafficLights < track.length; countTrafficLights++) {
+            if (track[countTrafficLights][0] > L){
+                return L;
+            }
             timeOfAllWay += track[countTrafficLights][0] - pointWay;
             pointWay = track[countTrafficLights][0];
             varForTrafficLightsOperation = timeOfAllWay;
