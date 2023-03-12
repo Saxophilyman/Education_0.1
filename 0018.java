@@ -17,11 +17,11 @@ public class Level1 {
                 sortedByAscending++;
             } else {
                 if (movementIndex - sortedByAscending == 1) {
+                    if (movementIndex + 1 >= data.length) {
+                    return false;
+                    }
                     timeVar = data[movementIndex - 1];
                     data[movementIndex - 1] = data[movementIndex];
-                    if (data[movementIndex + 1] >= data.length) {
-                        return false;
-                    }
                     data[movementIndex] = data[movementIndex + 1];
                     data[movementIndex + 1] = timeVar;
                     sortedByAscending++;
