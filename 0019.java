@@ -14,6 +14,7 @@ public class Level1 {
                 if (data.get(index)[0].equals(data.get(indexChecking)[0])) {
                     data.get(index)[1] = String.valueOf((Integer.parseInt(data.get(index)[1]) + Integer.parseInt(data.get(indexChecking)[1])));
                     data.remove(indexChecking);
+                    indexChecking--;
                 }
             }
         }
