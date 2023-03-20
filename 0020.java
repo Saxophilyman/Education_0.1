@@ -8,7 +8,8 @@ public class Level1 {
 
         public static String BastShoe(String command) {
         if (command.charAt(0) == 49) {
-            result.add(0, result.get(0) + "" + command.substring(2));
+            String string = result.get(0) + "" + command.substring(2);
+            result.add(0, string);
             if (undo != 0) {
                 List<String> sublist = result.subList(1, result.size());
                 result.removeAll(sublist);
