@@ -14,16 +14,19 @@ public class Level1 {
         } catch (NumberFormatException e) {
             return result.get(0);
         }
+
         if (numberCommand == 1) {
-            String string = result.get(0) + command.substring(2);
-            result.add(0, string);
             if (undo != 0) {
+                result.add(0, result.get(undo));
                 List<String> sublist = result.subList(1, result.size());
-                result.removeAll(sublist);
+                result.remove(sublist);
                 undo = 0;
             }
+            String string = result.get(0) + command.substring(2);
+            result.add(0, string);
             return result.get(0);
         }
+
         if (numberCommand == 2) {
             int n;
             try {
@@ -31,21 +34,17 @@ public class Level1 {
             } catch (NumberFormatException e) {
                 return result.get(0);
             }
-            if (n > result.get(0).length()) {
-                result.add(0, "");
-                if (undo != 0) {
-                    List<String> sublist = result.subList(1, result.size());
-                    result.removeAll(sublist);
-                    undo = 0;
-                }
-                return "";
-            }
-            result.add(0, result.get(0).substring(0, result.get(0).length() - n));
             if (undo != 0) {
+                result.add(0, result.get(undo));
                 List<String> sublist = result.subList(1, result.size());
-                result.removeAll(sublist);
+                result.remove(sublist);
                 undo = 0;
             }
+            if (n >= result.get(0).length()) {
+                result.add(0, "");
+                return result.get(0);
+            }
+            result.add(0, result.get(0).substring(0, result.get(0).length() - n));
             return result.get(0);
         }
         if (numberCommand == 3) {
@@ -60,15 +59,17 @@ public class Level1 {
             }
             return String.valueOf(result.get(0).charAt(n));
         }
+
         if (numberCommand == 4) {
-            if (undo + 1 >= result.size()) {
+            if (undo + 1 > result.size()) {
                 return result.get(result.size() - 1);
             }
             undo++;
             return result.get(undo);
         }
+
         if (numberCommand == 5) {
-            if (undo - 1 <= 0) {
+            if (undo - 1 < 0) {
                 return result.get(0);
             }
             undo--;
