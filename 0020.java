@@ -7,8 +7,15 @@ public class Level1 {
     static int undo = 0;
 
         public static String BastShoe(String command) {
-        if (command.charAt(0) == 49) {
-            String string = result.get(0) + "" + command.substring(2);
+        String arr[] = command.split(" ", 2);
+        int numberCommand;
+        try {
+            numberCommand = Integer.parseInt(arr[0]);
+        } catch (NumberFormatException e) {
+            return result.get(0);
+        }
+        if (numberCommand == 1) {
+            String string = result.get(0) + command.substring(2);
             result.add(0, string);
             if (undo != 0) {
                 List<String> sublist = result.subList(1, result.size());
@@ -17,14 +24,14 @@ public class Level1 {
             }
             return result.get(0);
         }
-        if (command.charAt(0) == 50) {
+        if (numberCommand == 2) {
             int n;
             try {
                 n = Integer.parseInt(command.substring(2));
             } catch (NumberFormatException e) {
                 return result.get(0);
             }
-            if (n > result.get(0).length() ) {
+            if (n > result.get(0).length()) {
                 result.add(0, "");
                 if (undo != 0) {
                     List<String> sublist = result.subList(1, result.size());
@@ -41,26 +48,26 @@ public class Level1 {
             }
             return result.get(0);
         }
-        if (command.charAt(0) == 51) {
+        if (numberCommand == 3) {
             int n;
             try {
                 n = Integer.parseInt(command.substring(2));
             } catch (NumberFormatException e) {
                 return result.get(0);
             }
-            if (n >= result.get(0).length()) {
+            if (n > result.get(0).length()) {
                 return "";
             }
             return String.valueOf(result.get(0).charAt(n));
         }
-        if (Integer.parseInt(command) == 4) {
+        if (numberCommand == 4) {
             if (undo + 1 >= result.size()) {
                 return result.get(result.size() - 1);
             }
             undo++;
             return result.get(undo);
         }
-        if (Integer.parseInt(command) == 5) {
+        if (numberCommand == 5) {
             if (undo - 1 <= 0) {
                 return result.get(0);
             }
