@@ -61,7 +61,7 @@ public class Level1 {
         }
 
         if (numberCommand == 4) {
-            if (undo + 1 > result.size()) {
+            if (undo + 1 >= result.size()) {
                 return result.get(result.size() - 1);
             }
             undo++;
