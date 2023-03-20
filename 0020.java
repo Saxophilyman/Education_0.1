@@ -19,7 +19,7 @@ public class Level1 {
             if (undo != 0) {
                 result.add(0, result.get(undo));
                 List<String> sublist = result.subList(1, result.size());
-                result.remove(sublist);
+                sublist.removeAll(result);
                 undo = 0;
             }
             String string = result.get(0) + command.substring(2);
@@ -37,7 +37,7 @@ public class Level1 {
             if (undo != 0) {
                 result.add(0, result.get(undo));
                 List<String> sublist = result.subList(1, result.size());
-                result.remove(sublist);
+                sublist.removeAll(result);
                 undo = 0;
             }
             if (n >= result.get(0).length()) {
