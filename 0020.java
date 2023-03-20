@@ -55,7 +55,7 @@ public class Level1 {
             } catch (NumberFormatException e) {
                 return result.get(0);
             }
-            if (n > result.get(0).length()) {
+            if (n >= result.get(0).length()) {
                 return "";
             }
             return String.valueOf(result.get(0).charAt(n));
