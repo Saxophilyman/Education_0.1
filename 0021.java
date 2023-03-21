@@ -4,7 +4,7 @@ public class Level1 {
     public static String BiggerGreater(String input) {
         String[] words = input.split("");
         String[] result;
-        for (int index = 1; index <= words.length; index++) {
+        for (int index = 2; index <= words.length; index++) {
             String[] simpleWords = Arrays.copyOfRange(words, words.length - index, words.length);
             String[] magicWords = Arrays.copyOfRange(words, words.length - index, words.length);
             Arrays.sort(magicWords);
@@ -17,7 +17,7 @@ public class Level1 {
                     newMagicWords.remove(indexInPartOfWord);
                     Collections.sort(newMagicWords);
                     System.arraycopy(newMagicWords.toArray(), 0, result, firstPart.length + 1, newMagicWords.size());
-                    return Arrays.toString(result);
+                    return String.join("", result);
                 }
             }
         }
