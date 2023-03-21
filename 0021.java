@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Level1 { 
+public class Level1 {     
     public static String BiggerGreater(String input) {
         String[] words = input.split("");
         String[] result;
@@ -15,7 +15,7 @@ public class Level1 {
                     result[firstPart.length] = magicWords[indexInPartOfWord];
                     ArrayList<String> newMagicWords = new ArrayList<>(Arrays.asList(magicWords));
                     newMagicWords.remove(indexInPartOfWord);
-                    sort(newMagicWords);
+                    Collections.sort(newMagicWords);
                     System.arraycopy(newMagicWords.toArray(), 0, result, firstPart.length + 1, newMagicWords.size());
                     return Arrays.toString(result);
                 }
