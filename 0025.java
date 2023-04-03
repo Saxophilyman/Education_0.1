@@ -26,8 +26,8 @@ public class Level1 {
             }
         }
         int[] returnArray = new int[array.size()];
-        for (Integer x : array) {
-            returnArray[x] = array.get(x);
+        for (int i = 0; i < array.size(); i++) {
+            returnArray[i] = array.get(i);
         }
         return returnArray;
     }
