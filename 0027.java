@@ -39,6 +39,7 @@ public class Level1 {
             if (arrPrimal[index] < arrPrimal[findIndex]) {
                 break;
             }
+            arrReverse.add(arrPrimal[findIndex]);
         }
         Collections.reverse(arrReverse);
         for (int i = 0; i < arrReverse.size(); i++) {
